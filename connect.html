@@ -85,7 +85,7 @@
 												5. When you join a team, edit the registration form and set the response "Open to Teammates" as "No"
 											</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Find Teams</a></li>
+												<li><a href="#sheets" onclick="switchTab('team')" class="button next scrolly">Find Teams</a></li>
 											</ul>
 										</div>
 									</div>
@@ -107,34 +107,37 @@
 												5. When your team is full, edit the registration form and set the response for "Open to Teammates" as "No"
 											</p>
 											<ul class="actions">
-												<li><a href="generic.html" class="button">Find Members</a></li>
+												<li><a href="#sheets" onclick="switchTab('indi')" class="button next scrolly">Find Members</a></li>
 											</ul>
 										</div>
 									</div>
 								</section>
 							</section>
 							
-							<!-- Three -->
-							<section id="three">
-								<div class="inner">
-									<header class="major">
-										<h2>JOIN THE COMMUNITY</h2>
-									</header>
-									<p>If you are looking for help and mentorship - Join our Discord Server. Our robust logistics team and mentors are happy to help!</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button next">Join the Discord Server</a></li>
-									</ul>
+					
+
+							<section style="background-color: white;" id="sheets">
+								<ul style="background-color: #867eba; display: flex; justify-content: center; list-style-type: none; font-size: 1.4rem; font-weight: bold;">
+									<li style="padding: 1vw 4vw;"><a href="#sheets" class="active" id="indi" onclick="switchTab('indi')" class="next scrolly">Find Members</a></li>
+									<li style="padding: 1vw 4vw;"><a href="#sheets" class="" id="team" onclick="switchTab('team')" class="next scrolly">Find Teams</a></li>
+								</ul>
+								<div class="inner" id="sheet">	
+									<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS5kxLXyAMqfeNXWlm6BpOswwnvrbMszMZfCpo07uP-EVWULa93JhZ2EWJai1UkLkdxvrOhidWsOI_u/pubhtml?gid=1460310197&amp;single=true&amp;widget=true&amp;headers=false" style="width: 100%; height: 50vh;"></iframe>
 								</div>
 							</section>
 
-
-							<section>
-								<div class="inner">
-									<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS5kxLXyAMqfeNXWlm6BpOswwnvrbMszMZfCpo07uP-EVWULa93JhZ2EWJai1UkLkdxvrOhidWsOI_u/pubhtml?gid=145607175&amp;single=true&amp;widget=true&amp;headers=false" style="width: 100%; height: 50vh;"></iframe>
-								</div>
-							</section>
-
-						
+						<!-- Three -->
+						<section id="three">
+							<div class="inner">
+								<header class="major">
+									<h2>JOIN THE COMMUNITY</h2>
+								</header>
+								<p>If you are looking for help and mentorship - Join our Discord Server. Our robust logistics team and mentors are happy to help!</p>
+								<ul class="actions">
+									<li><a href="generic.html" class="button next">Join the Discord Server</a></li>
+								</ul>
+							</div>
+						</section>
 
 						
 					</div>
@@ -196,6 +199,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/switchtabs.js"></script>
 
 	</body>
 </html>
