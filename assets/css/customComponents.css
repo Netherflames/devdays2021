@@ -1,0 +1,37 @@
+.expert-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+
+.expert-card {
+  background-color: white;
+  padding: 1.5em 1em;
+  height: 16em;
+  width: 18em;
+  color: black;
+  text-align: center;
+}
+
+.expert-name,
+.expert-contact-label {
+  color: black !important;
+  margin-bottom: 0.1em;
+}
+
+.expert-designation {
+  margin-bottom: 0.5em;
+}
+
+.expert-pic {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  object-fit: cover;
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8514d91f2da1424dab7e11095e3c8a92fa646fe9
