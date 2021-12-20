@@ -5,6 +5,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/fh-3.2.1/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.css"/>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -117,13 +119,60 @@
 							
 					
 
-							<section style="background-color: white;" id="sheets">
+							<section style="" id="sheets">
 								<ul style="background-color: #867eba; display: flex; justify-content: center; list-style-type: none; font-size: 1.4rem; font-weight: bold;">
-									<li style="padding: 1vw 4vw;"><a href="#sheets" class="active" id="indi" onclick="switchTab('indi')" class="next scrolly">Find Members</a></li>
-									<li style="padding: 1vw 4vw;"><a href="#sheets" class="" id="team" onclick="switchTab('team')" class="next scrolly">Find Teams</a></li>
+									<li style="padding: 1vw 4vw;"><a href="#sheets" class="active nav-items" id="ind" onclick="show_ind();" class="next scrolly">Find Members</a></li>
+									<li style="padding: 1vw 4vw;"><a href="#sheets" class=" nav-items" id="team" onclick="show_team();" class="next scrolly">Find Teams</a></li>
 								</ul>
-								<div class="inner" id="sheet">	
-									<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS5kxLXyAMqfeNXWlm6BpOswwnvrbMszMZfCpo07uP-EVWULa93JhZ2EWJai1UkLkdxvrOhidWsOI_u/pubhtml?gid=1460310197&amp;single=true&amp;widget=true&amp;headers=false" style="width: 100%; height: 50vh;"></iframe>
+								<div class="inner" id="sheet" style="display: none;">	
+								</div>
+								
+								<div class="container" style="padding-bottom: 25px;">
+									<div class="d-flex justify-content-center" id="spinner">
+										<div class="spinner-border" role="status">
+										  <span class="visually-hidden">Loading...</span>
+										</div>
+									  </div>
+									  <div id="error" style="display: none;">
+										<div class="alert alert-danger" role="alert">
+											<b class="">Unable to fetch data, try again.</b>
+										  </div>
+									  </div>
+
+									<div id="member-table-wrapper" style="display: none;">
+										<table id="member-table">
+											<thead>
+												<tr>
+													<tr>
+														<td><b>Name</b></td>
+														<td><b>Email</b></td>
+														<td><b>About</b></td>
+													</tr>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
+									
+									<div id="team-table-wrapper" style="display: none;">
+										<table id="team-table">
+											<thead>
+												<tr>
+													<tr>
+														<td><b>Team Name</b></td>
+														<td><b>Lead Name</b></td>
+														<td><b>Lead Email</b></td>
+														<td><b>Project Abstract</b></td>
+													</tr>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</section>
 
@@ -201,6 +250,11 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/switchtabs.js"></script>
+			<script src="assets/js/data.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+			<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/fh-3.2.1/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.js"></script>
+			<script src="assets/js/connect.js"></script>
 
 	</body>
 </html>

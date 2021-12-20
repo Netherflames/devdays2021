@@ -1,9 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Support : App-a-thon</title>
+		<title>The Team : App-a-thon</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/fh-3.2.1/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.css"/>
+ 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -50,7 +53,9 @@
 								<h1>The Team</h1>
 							</header>
 							<div class="content">
-								<p>Get your questions answered here.</p>
+								<p>Meet the amazing team behind the App-a-thon.</p>
+								<br>
+								<p>Reach out to the logistics team for any queries and support.</p>
 							</div>
 						</div>
 					</section>
@@ -58,68 +63,20 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-						<table>
-							<tr>
-								<td><b>Name</b></td>
-								<td><b> Roll No</b></td>
-							</tr>
-							<tr>
-								<td> Kumar Jha </td>
-								<td>21f1004905</td>
-							</tr>
-							<tr>
-								<td>Aman Kankriya</td>
-								<td>21f2000493</td>
-							</tr>
-							<tr>
-								<td>Prince Sant</td>
-								<td>21f2001061</td>
-							</tr>
-							<tr>
-								<td>Sowmika Chaluvadi </td>
-								<td>21f3000670</td>
-							</tr>
-							<tr>
-								<td>Siddharth Sharavat</td>
-								<td>21f13000402</td>
-							</tr>
-							<tr>
-								<td>Dhaarini Pankaj P </td>
-								<td>21f3000775</td>
-							</tr>
-							<tr>
-								<td>Aditya Chaturvedi</td>
-								<td>21f1004065</td>
-							</tr>
-							<tr>
-								<td>Nithin Reddy Dendi </td>
-								<td>21f1006156</td>
-							</tr>
-							<tr>
-								<td>Saurav Singh</td>
-								<td>21f1000752</td>
-							</tr>
-							<tr>
-								<td>Nithesh</td>
-								<td>21f2001271</td>
-							</tr>
-							<tr>
-								<td>Andrea Lisa Dsouza</td>
-								<td>21f1002744</td>
-							</tr>
-							<tr>
-								<td>Rakesh Kumar Mandal</td>
-								<td>21f1007049</td>
-							</tr>
-							<tr>
-								<td>Kumkum Kwatra</td>
-								<td>21f3000783</td>
-							</tr>
-							<tr>
-								<td>Nishkarsh Sharma</td>
-								<td>21f1000053</td>
-							</tr>
-						</table>
+							<div class="container">
+							<table id="team-table">
+								<thead>
+									<tr>
+										<td><b>Name</b></td>
+										<td><b>Team</b></td>
+										<td><b>Roll No</b></td>
+									</tr>
+								</thead>
+								<tbody>
+									
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 
@@ -180,6 +137,30 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/data.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+			<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/fh-3.2.1/r-2.2.9/sc-2.0.5/sp-1.4.0/datatables.min.js"></script>
+
+			<script>
+				var dt;
+				$(document).ready(() => {
+					
+					get_sheet_data(TEAM_SHEET, TEAM_GID, 3).then((r) => {
+						//console.log(r);
+						dt = $("#team-table").DataTable(
+							{
+								data: r.r.slice(1),
+								fixedHeader: true,
+								order: [[1, 'asc']],
+								deferRender: true
+							}
+						);
+						dt.draw();
+					}).catch((e) => {
+						$("#team-table").html(`<div class="alert alert-danger" role="alert"><b class="text-dark">Unable to fetch data, try again.</b></div>`);
+					})
+				})
+			</script>
 
 	</body>
 </html>
