@@ -18,7 +18,7 @@ function show_ind() {
     $("#member-table-wrapper, #team-table-wrapper, #final-table-wrapper, #error").hide();
 
     get_sheet_data(PART_SHEET, PART_IND, 4).then((r) => {
-        r = r.r.map((x) => {x.splice(2, 1); return x});
+        r = r.r //.map((x) => {x.splice(2, 1); return x});
         
         $("#member-table-wrapper").show();
         if (ind_dt) {
@@ -66,7 +66,7 @@ function show_team() {
     $("#member-table-wrapper, #team-table-wrapper, #final-table-wrapper, #error").hide();
 
     get_sheet_data(PART_SHEET, PART_TEAM, 5).then((r) => {
-        r = r.r.map((x) => {x.splice(3, 1); return x});
+        r = r.r //.map((x) => {x.splice(3, 1); return x});
         
         $("#team-table-wrapper").show();
         if (team_dt) {
